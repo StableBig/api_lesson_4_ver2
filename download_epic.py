@@ -5,7 +5,6 @@ import requests
 from dotenv import load_dotenv
 from space_image_utils import download_images_from_urls
 
-load_dotenv()
 
 def get_image_urls(count):
     api_key = os.getenv("EPIC_API_KEY")
@@ -21,6 +20,8 @@ def get_date_from_iso(iso_date):
     return date_object.strftime("%Y/%m/%d")
 
 if __name__ == "__main__":
+    load_dotenv()
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--count", help="Количество изображений для загрузки", default=10, type=int)
     args = parser.parse_args()
@@ -28,7 +29,6 @@ if __name__ == "__main__":
     image_urls = get_image_urls(args.count)
 
     if image_urls:
-        print("Список изображений:", image_urls)
         download_images_from_urls(image_urls, "images", 'epic')
     else:
         print("Не найдено ссылок на изображения.")

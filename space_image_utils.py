@@ -25,5 +25,3 @@ def download_images_from_urls(image_urls, save_folder, filename_prefix):
 
         with open(save_path, "wb") as file:
             file.write(response.content)
-
-        print(f"Скачано изображение {image_name}")

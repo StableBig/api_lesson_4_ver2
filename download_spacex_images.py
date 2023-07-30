@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import requests
 from space_image_utils import download_images_from_urls
 
-load_dotenv()
 
 def fetch_spacex_last_launch(launch_id):
     base_url = f"https://api.spacexdata.com/v4/launches/{launch_id}"
@@ -20,6 +19,8 @@ def fetch_spacex_last_launch(launch_id):
         print("Не найдено ссылок на изображения.")
 
 if __name__ == "__main__":
+    load_dotenv()
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--launch_id", help="ID запуска SpaceX", default="5eb87d47ffd86e000604b38a")
     args = parser.parse_args()
