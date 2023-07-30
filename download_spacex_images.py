@@ -1,24 +1,11 @@
-import os
+import argparse
+from dotenv import load_dotenv
 import requests
+from space_image_utils import download_images_from_urls
 
-def download_images_from_urls(image_urls, save_folder):
-    os.makedirs(save_folder, exist_ok=True)
+load_dotenv()
 
-    for index, image_url in enumerate(image_urls):
-        image_extension = image_url.split(".")[-1]
-        image_name = f"spacex_image_{index + 1}.{image_extension}"
-        save_path = os.path.join(save_folder, image_name)
-
-        response = requests.get(image_url)
-        response.raise_for_status()
-
-        with open(save_path, "wb") as file:
-            file.write(response.content)
-
-        print(f"Скачано изображение {image_name}")
-
-def fetch_spacex_last_launch():
-    launch_id = "5eb87d47ffd86e000604b38a"
+def fetch_spacex_last_launch(launch_id):
     base_url = f"https://api.spacexdata.com/v4/launches/{launch_id}"
     response = requests.get(base_url)
     response.raise_for_status()
@@ -28,9 +15,13 @@ def fetch_spacex_last_launch():
 
     if image_links:
         save_folder = "images"
-        download_images_from_urls(image_links, save_folder)
+        download_images_from_urls(image_links, save_folder, 'spacex')
     else:
-        print("Ссылки на фотографии не найдены.")
+        print("Не найдено ссылок на изображения.")
 
 if __name__ == "__main__":
-    fetch_spacex_last_launch()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--launch_id", help="ID запуска SpaceX", default="5eb87d47ffd86e000604b38a")
+    args = parser.parse_args()
+
+    fetch_spacex_last_launch(args.launch_id)
