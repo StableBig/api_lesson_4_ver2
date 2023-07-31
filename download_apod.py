@@ -22,7 +22,7 @@ def fetch_nasa_images(date):
         print("Не найдено ссылок на изображения.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Скрипт для скачивания фотографий Astronomy Picture of the Day (APOD) с сайта NASA.")
     parser.add_argument("--date", help="Дата изображения APOD (YYYY-MM-DD)", default="2023-07-30")
     args = parser.parse_args()
 

@@ -22,7 +22,7 @@ def get_date_from_iso(iso_date):
 if __name__ == "__main__":
     load_dotenv()
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Скрипт для скачивания фотографий Earth Polychromatic Imaging Camera (EPIC) с сайта NASA.")
     parser.add_argument("--count", help="Количество изображений для загрузки", default=10, type=int)
     args = parser.parse_args()
 
