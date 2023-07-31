@@ -6,11 +6,6 @@ from dotenv import load_dotenv
 from telegram import Bot
 
 
-def post_text_to_channel(message, channel_id, bot_token):
-    bot = Bot(token=bot_token)
-    bot.send_message(chat_id=channel_id, text=message)
-
-
 def post_image_to_channel(image_path, channel_id, bot_token):
     bot = Bot(token=bot_token)
     with open(image_path, 'rb') as image_file:
