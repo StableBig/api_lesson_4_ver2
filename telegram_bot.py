@@ -28,7 +28,7 @@ if __name__ == "__main__":
     load_dotenv()
 
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
-    channel_id = os.getenv("CHANNEL_ID")
+    channel_id = os.getenv("TELEGRAM_CHANNEL_ID")
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--dir", help="Директория с изображениями для публикации", default="images")

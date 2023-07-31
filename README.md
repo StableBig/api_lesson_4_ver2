@@ -1,6 +1,8 @@
 # Загрузка фотографий космоса в Telegram-канал
 
-Скрипты загружают фото NASA EPIC и NASA APOD (используя API) и SpaceX. Используя Telegram-бота, автоматически публикуются фотографии или текст в Telegram-канал.
+Скрипты загружают фотографии NASA EPIC (Earth Polychromatic Imaging Camera) и NASA APOD (Astronomy Picture of the Day) и фото запусков SpaceX. Используя Telegram-бота, автоматически публикуются фотографии в Telegram-канал.
+
+NASA EPIC и NASA APOD используют API для работы.
 
 ### Как установить
 
@@ -8,7 +10,7 @@
 
 Добавляем их в файл .env.
 
-NASA_API_KEY=ваш_API_ключ_NASA.
+NASA_API_KEY=ваш_API_ключ_NASA. *Используется для NASA EPIC и NASA APOD*
 
 TELEGRAM_BOT_TOKEN=ваш_токен_бота_Telegram.
 
@@ -50,7 +52,7 @@ TELEGRAM_BOT_TOKEN=ваш_токен_указывается_здесь
 
 ID канала указывается в файле .env. Например:
 
-CHANNEL_ID=@id_вашего_канала_указывается_здесь
+TELEGRAM_CHANNEL_ID=@id_вашего_канала_указывается_здесь
 
 Для автоматической публикации сообщений в Telegram-канал используйте скрипт 'telegram_bot.py'.
 
