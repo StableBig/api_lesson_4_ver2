@@ -5,8 +5,7 @@ import requests
 from space_image_utils import download_images_from_urls
 
 
-def fetch_nasa_images(date):
-    api_key = os.getenv("NASA_API_KEY")
+def fetch_nasa_images(api_key, date):
     url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}&date={date}"
     response = requests.get(url)
     response.raise_for_status()
@@ -20,11 +19,13 @@ def fetch_nasa_images(date):
     else:
         print("Не найдено ссылок на изображения.")
 
+
 if __name__ == "__main__":
     load_dotenv()
+    api_key = os.getenv("NASA_API_KEY")
 
     parser = argparse.ArgumentParser(description="Скрипт для скачивания фотографий Astronomy Picture of the Day (APOD) с сайта NASA.")
     parser.add_argument("--date", help="Дата изображения APOD (YYYY-MM-DD)", default="2023-07-30")
     args = parser.parse_args()
 
-    fetch_nasa_images(args.date)
+    fetch_nasa_images(api_key, args.date)

@@ -5,9 +5,7 @@ import requests
 from dotenv import load_dotenv
 from space_image_utils import download_images_from_urls
 
-
-def get_image_urls(count):
-    api_key = os.getenv("NASA_API_KEY")
+def get_image_urls(api_key, count):
     response = requests.get(f"https://api.nasa.gov/EPIC/api/natural/images?api_key={api_key}")
     response.raise_for_status()
 
@@ -21,14 +19,15 @@ def get_date_from_iso(iso_date):
 
 if __name__ == "__main__":
     load_dotenv()
+    api_key = os.getenv("NASA_API_KEY")
 
     parser = argparse.ArgumentParser(description="Скрипт для скачивания фотографий Earth Polychromatic Imaging Camera (EPIC) с сайта NASA.")
     parser.add_argument("--count", help="Количество изображений для загрузки", default=10, type=int)
     args = parser.parse_args()
 
-    image_urls = get_image_urls(args.count)
+    image_urls = get_image_urls(api_key, args.count)
 
     if image_urls:
-        download_images_from_urls(image_urls, "images", 'epic')
+        download_images_from_urls(image_urls, "images", "epic")
     else:
         print("Не найдено ссылок на изображения.")
