@@ -14,7 +14,7 @@ NASA_API_KEY=ваш_API_ключ_NASA. *Используется для NASA EPI
 
 TELEGRAM_BOT_TOKEN=ваш_токен_бота_Telegram.
 
-CHANNEL_ID=ID_вашего_канала_Telegram.
+TELEGRAM_CHANNEL_ID=ID_вашего_канала_Telegram.
 
 Python3 должен быть уже установлен. 
 Затем используйте `pip` (или `pip3`) для установки зависимостей:
