@@ -6,7 +6,11 @@ from dotenv import load_dotenv
 from space_image_utils import download_images_from_urls
 
 def get_image_urls(api_key, count):
-    response = requests.get(f"https://api.nasa.gov/EPIC/api/natural/images?api_key={api_key}")
+    params = {
+        "api_key": api_key
+    }
+
+    response = requests.get("https://api.nasa.gov/EPIC/api/natural/images", params=params)
     response.raise_for_status()
 
     data = response.json()

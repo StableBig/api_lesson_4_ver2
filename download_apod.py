@@ -4,10 +4,13 @@ import os
 import requests
 from space_image_utils import download_images_from_urls
 
-
 def fetch_nasa_images(api_key, date):
-    url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}&date={date}"
-    response = requests.get(url)
+    params = {
+        "api_key": api_key,
+        "date": date
+    }
+
+    response = requests.get("https://api.nasa.gov/planetary/apod", params=params)
     response.raise_for_status()
     image_data = response.json()
 
@@ -18,7 +21,6 @@ def fetch_nasa_images(api_key, date):
         download_images_from_urls(image_links, save_folder, filename_prefix)
     else:
         print("Не найдено ссылок на изображения.")
-
 
 if __name__ == "__main__":
     load_dotenv()
