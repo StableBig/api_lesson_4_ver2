@@ -23,6 +23,7 @@ def fetch_nasa_images(date, api_key):
     filename_prefix = "apod"
     download_images_from_urls(image_links, save_folder, filename_prefix)
 
+
 if __name__ == "__main__":
     load_dotenv()
     api_key = os.getenv("NASA_API_KEY")

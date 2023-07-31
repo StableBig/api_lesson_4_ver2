@@ -25,9 +25,11 @@ def get_image_urls(api_key, count):
         image_urls.append(prepared_request.url)
     return image_urls
 
+
 def get_date_from_iso(iso_date):
     date_object = datetime.fromisoformat(iso_date.replace("T", " ").split(".")[0])
     return date_object.strftime("%Y/%m/%d")
+
 
 if __name__ == "__main__":
     load_dotenv()

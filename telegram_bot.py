@@ -10,16 +10,19 @@ def post_text_to_channel(message, channel_id, bot_token):
     bot = Bot(token=bot_token)
     bot.send_message(chat_id=channel_id, text=message)
 
+
 def post_image_to_channel(image_path, channel_id, bot_token):
     bot = Bot(token=bot_token)
     with open(image_path, 'rb') as image_file:
         bot.send_photo(chat_id=channel_id, photo=image_file)
+
 
 def get_all_images_from_directory(directory):
     for root, dirs, files in os.walk(directory):
         for file in files:
             if file.endswith(".jpg") or file.endswith(".png"):
                 yield os.path.join(root, file)
+
 
 if __name__ == "__main__":
     load_dotenv()

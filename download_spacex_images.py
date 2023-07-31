@@ -18,6 +18,7 @@ def fetch_spacex_last_launch(launch_id):
     else:
         print("Не найдено ссылок на изображения.")
 
+
 if __name__ == "__main__":
     load_dotenv()
 
