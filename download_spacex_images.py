@@ -20,8 +20,6 @@ def fetch_spacex_last_launch(launch_id):
 
 
 if __name__ == "__main__":
-    load_dotenv()
-
     parser = argparse.ArgumentParser(description="Скрипт для скачивания фотографий запусков с сайта SpaceX.")
     parser.add_argument("--launch_id", help="ID запуска SpaceX", default="5eb87d47ffd86e000604b38a")
     args = parser.parse_args()
