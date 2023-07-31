@@ -13,8 +13,8 @@ def get_image_urls(api_key, count):
     response = requests.get("https://api.nasa.gov/EPIC/api/natural/images", params=params)
     response.raise_for_status()
 
-    data = response.json()
-    image_urls = [f"https://api.nasa.gov/EPIC/archive/natural/{get_date_from_iso(item['date'])}/png/{item['image']}.png?api_key={api_key}" for item in data][:count]
+    image_info_from_api = response.json()
+    image_urls = [f"https://api.nasa.gov/EPIC/archive/natural/{get_date_from_iso(item['date'])}/png/{item['image']}.png?api_key={api_key}" for item in image_info_from_api][:count]
     return image_urls
 
 def get_date_from_iso(iso_date):

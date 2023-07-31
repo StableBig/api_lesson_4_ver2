@@ -8,13 +8,13 @@ def fetch_spacex_last_launch(launch_id):
     base_url = f"https://api.spacexdata.com/v4/launches/{launch_id}"
     response = requests.get(base_url)
     response.raise_for_status()
-    launch_data = response.json()
+    launch_info_from_api = response.json()
 
-    image_links = launch_data.get("links", {}).get("flickr", {}).get("original", [])
+    image_links = launch_info_from_api.get("links", {}).get("flickr", {}).get("original", [])
 
     if image_links:
         save_folder = "images"
-        download_images_from_urls(image_links, save_folder, 'spacex')
+        download_images_from_urls(image_links, save_folder, "spacex")
     else:
         print("Не найдено ссылок на изображения.")
 

@@ -12,10 +12,10 @@ def fetch_nasa_images(api_key, date):
 
     response = requests.get("https://api.nasa.gov/planetary/apod", params=params)
     response.raise_for_status()
-    image_data = response.json()
+    image_info_from_api = response.json()
 
-    if "url" in image_data and image_data["media_type"] == "image":
-        image_links = [image_data["url"]]
+    if "url" in image_info_from_api and image_info_from_api["media_type"] == "image":
+        image_links = [image_info_from_api["url"]]
         save_folder = "images"
         filename_prefix = "apod"
         download_images_from_urls(image_links, save_folder, filename_prefix)
