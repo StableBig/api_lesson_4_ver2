@@ -5,6 +5,7 @@ import requests
 from dotenv import load_dotenv
 from space_image_utils import download_images_from_urls
 
+
 def get_image_urls(api_key, count):
     params = {
         "api_key": api_key
@@ -14,18 +15,28 @@ def get_image_urls(api_key, count):
     response.raise_for_status()
 
     image_info_from_api = response.json()
-    image_urls = [f"https://api.nasa.gov/EPIC/archive/natural/{get_date_from_iso(item['date'])}/png/{item['image']}.png?api_key={api_key}" for item in image_info_from_api][:count]
+
+    image_urls = []
+    for item in image_info_from_api[:count]:
+        request = requests.Request("GET",
+                                   f"https://api.nasa.gov/EPIC/archive/natural/{get_date_from_iso(item['date'])}/png/{item['image']}.png",
+                                   params=params)
+        prepared_request = request.prepare()
+        image_urls.append(prepared_request.url)
     return image_urls
+
 
 def get_date_from_iso(iso_date):
     date_object = datetime.fromisoformat(iso_date.replace("T", " ").split(".")[0])
     return date_object.strftime("%Y/%m/%d")
 
+
 if __name__ == "__main__":
     load_dotenv()
     api_key = os.getenv("NASA_API_KEY")
 
-    parser = argparse.ArgumentParser(description="Скрипт для скачивания фотографий Earth Polychromatic Imaging Camera (EPIC) с сайта NASA.")
+    parser = argparse.ArgumentParser(
+        description="Скрипт для скачивания фотографий Earth Polychromatic Imaging Camera (EPIC) с сайта NASA.")
     parser.add_argument("--count", help="Количество изображений для загрузки", default=10, type=int)
     args = parser.parse_args()
 
