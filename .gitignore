@@ -111,6 +111,7 @@ celerybeat.pid
 
 # Environments
 .env
+../api_lesson_4_ver2/.env
 .venv
 env/
 venv/
