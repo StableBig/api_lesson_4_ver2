@@ -7,7 +7,7 @@ from space_image_utils import download_images_from_urls
 load_dotenv()
 
 def fetch_nasa_images(date):
-    api_key = os.getenv("APOD_API_KEY")
+    api_key = os.getenv("NASA_API_KEY")
     url = f"https://api.nasa.gov/planetary/apod?api_key={api_key}&date={date}"
     response = requests.get(url)
     response.raise_for_status()

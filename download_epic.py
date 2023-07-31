@@ -7,7 +7,7 @@ from space_image_utils import download_images_from_urls
 
 
 def get_image_urls(count):
-    api_key = os.getenv("EPIC_API_KEY")
+    api_key = os.getenv("NASA_API_KEY")
     response = requests.get(f"https://api.nasa.gov/EPIC/api/natural/images?api_key={api_key}")
     response.raise_for_status()
 
