@@ -8,9 +8,9 @@ def fetch_spacex_last_launch(launch_id):
     base_url = f"https://api.spacexdata.com/v4/launches/{launch_id}"
     response = requests.get(base_url)
     response.raise_for_status()
-    launch_info_from_api = response.json()
+    spacex_response_content = response.json()
 
-    image_links = launch_info_from_api.get("links", {}).get("flickr", {}).get("original", [])
+    image_links = spacex_response_content.get("links", {}).get("flickr", {}).get("original", [])
 
     if image_links:
         save_folder = "images"
