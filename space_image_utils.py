@@ -26,9 +26,17 @@ def download_image(image_url, save_folder, filename_prefix, timestamp, index):
     save_image(image_url, save_path)
 
 
+def create_directory_if_not_exists(directory):
+    os.makedirs(directory, exist_ok=True)
+
+
+def get_current_timestamp():
+    return datetime.now().strftime("%Y%m%d%H%M%S")
+
+
 def download_images_from_urls(image_urls, save_folder, filename_prefix):
-    os.makedirs(save_folder, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    create_directory_if_not_exists(save_folder)
+    timestamp = get_current_timestamp()
 
     for index, image_url in enumerate(image_urls, start=1):
         download_image(image_url, save_folder, filename_prefix, timestamp, index)
