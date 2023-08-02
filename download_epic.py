@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 import requests
 from dotenv import load_dotenv
-from space_image_utils import download_images_from_urls
+from space_image_utils import download_image
 
 
 def get_image_urls(api_key, count):
@@ -43,6 +43,9 @@ if __name__ == "__main__":
     image_urls = get_image_urls(api_key, args.count)
 
     if image_urls:
-        download_images_from_urls(image_urls, "images", "epic")
+        os.makedirs("images", exist_ok=True)
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        for index, image_url in enumerate(image_urls, start=1):
+            download_image(image_url, "images", "epic", timestamp, index)
     else:
         print("Не найдено ссылок на изображения.")
