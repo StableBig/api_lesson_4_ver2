@@ -58,6 +58,8 @@ TELEGRAM_BOT_TOKEN=ваш_telegram_bot_token
 TELEGRAM_CHANNEL_ID=@ваш_telegram_channel_id
 ```
 
+ID канала Telegram начинается с **@**!
+
 **Как получить ключ API NASA:**
 
 Чтобы получить ключ API NASA, перейдите на https://api.nasa.gov/ и сгенерируйте свой собственный ключ API.
@@ -159,7 +161,7 @@ A Telegram channel
 
 ## Setup
 
-# 1. Clone the repository
+### 1. Clone the repository
 
 Start by cloning the repository to your local machine.
 
@@ -170,7 +172,7 @@ cd api_lesson_4_ver2
 
 _Please note that the `cd` (change directory) command is used in Unix/Linux systems. If you are using Windows, you can use the same command in PowerShell or use the `chdir` command in Command Prompt (cmd)_.
 
-# 2. Setup Virtual Environment
+### 2. Setup Virtual Environment
 
 Next, set up a new virtual environment and activate it.
 
@@ -180,7 +182,7 @@ source venv/bin/activate  # for Unix systems
 .\venv\Scripts\activate  # for Windows
 ```
 
-# 3. Install dependencies
+### 3. Install dependencies
 
 With your virtual environment activated, install the project dependencies with:
 
@@ -188,7 +190,7 @@ With your virtual environment activated, install the project dependencies with:
 pip install -r requirements.txt
 ```
 
-# 4. Setup environment variables
+### 4. Setup environment variables
 
 You need to set up some environment variables before running the bot. Create a .env file and add the variables with your NASA API key, Telegram bot token, and Telegram channel ID:
 
@@ -197,6 +199,8 @@ NASA_API_KEY=your_nasa_api_key
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token
 TELEGRAM_CHANNEL_ID=@your_telegram_channel_id
 ```
+
+Telegram Channel ID starts with **@**!
 
 **Getting a NASA API Key:**
 
@@ -215,7 +219,7 @@ To get a NASA API key, visit https://api.nasa.gov/ and generate your own API key
 3. Once the channel is created, go to 'Channel Settings' -> 'Channel Info'.
 4. Here you can copy the channel ID (this will be the part after https://t.me/ in the Link section).
 
-# 5. Running the scripts
+### 5. Running the scripts
 
 The project contains several scripts that you will need to run:
 
@@ -270,6 +274,7 @@ python telegram_bot.py --dir images  # Fetches images from 'images' directory
 ```
 
 If you want to post a specific image, use `--image` argument:
+
 ```bash
 python telegram_bot.py --image epic_1.png  # Posts 'epic_1.png' image
 
