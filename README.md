@@ -127,6 +127,10 @@ _Команда загружает изображения из папки `image
 
 Если вы хотите, чтобы ваш бот работал постоянно, скрипт должен быть постоянно запущен все это время.
 
+## Дополнительная информация
+
+Обратите внимание, что API NASA может быть недоступен. Если это так, скрипты загрузки изображений (download_apod.py and download_epic.py) будут возвращать ошибку и не будут работать. Если это случилось, попробуйте воспользоваться скриптами позднее.
+
 ## Цель проекта
 
 Код написан в образовательных целях.
@@ -278,6 +282,10 @@ To stop the bot, interrupt the script execution by pressing Ctrl + C in the term
 ## Keep the bot running
 
 If you want the bot to run indefinitely, you will need to keep the script running.
+
+## Additional Information
+
+Please note that the NASA API might be unavailable at times. If this is the case, the image downloading scripts (download_apod.py and download_epic.py) will return an error and won't function. If you encounter this, try running the scripts later.
 
 ## Project Goal
 
