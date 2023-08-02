@@ -1,5 +1,4 @@
 import argparse
-from dotenv import load_dotenv
 import requests
 from space_image_utils import download_images_from_urls
 
