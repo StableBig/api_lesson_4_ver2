@@ -147,17 +147,17 @@ Space Images Bot is a Python project that fetches and posts space-themed images 
 
 Before getting started you should have the following installed and running:
 
-Python 3.7 or higher
-pip - Python's package installer
-Virtualenv - A tool to create isolated Python environments
-Git - Version Control System
+* Python 3.7 or higher
+* pip - Python's package installer
+* Virtualenv - A tool to create isolated Python environments
+* Git - Version Control System
 
 You'll also need:
 
-An internet connection
-A NASA API key
-A Telegram bot token
-A Telegram channel
+* An internet connection
+* A NASA API key
+* A Telegram bot token
+* A Telegram channel
 
 ## Setup
 
@@ -248,7 +248,7 @@ _You can specify the number of images to be downloaded (instead of 10 - any numb
 This script fetches the latest images from SpaceX launches and stores them in the local `images/` directory.
 
 ```bash
-python3 download_spacex_images.py --launch_id 5eb87d47ffd86e000604b38a
+python download_spacex_images.py --launch_id 5eb87d47ffd86e000604b38a
 ```
 
 _You can specify the launch ID (5eb87d47ffd86e000604b38a or another). If not specified, the images from the launch with ID '5eb87d47ffd86e000604b38a' are downloaded by default._
