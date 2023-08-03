@@ -58,7 +58,7 @@ TELEGRAM_BOT_TOKEN=ваш_telegram_bot_token
 TELEGRAM_CHANNEL_ID=@ваш_telegram_channel_id
 ```
 
-ID канала Telegram начинается с **@**!
+_ID канала Telegram начинается с **@**!_
 
 **Как получить ключ API NASA:**
 
@@ -89,7 +89,7 @@ ID канала Telegram начинается с **@**!
 python download_apod.py --date YYYY-MM-DD
 ```
 
-Вы можете указать дату изображения (YYYY - год, MM - месяц, DD - день). Если не указана, будет загружено изображение с датой '2023-08-01' по умолчанию.
+_Вы можете указать дату изображения (YYYY - год, MM - месяц, DD - день). Если не указана, будет загружено изображение с датой '2023-08-01' по умолчанию._
 
 **download_epic.py:**
 
@@ -109,7 +109,7 @@ _Вы можете указать количество фотографий (в�
 python download_spacex_images.py --launch_id 5eb87d47ffd86e000604b38a
 ```
 
-_Вы должны указать ID запуска (5eb87d47ffd86e000604b38a или другой). Если не указан, по умолчанию загружаются фотографии запуска с ID 5eb87d47ffd86e000604b38a._
+_Вы можете указать ID запуска (5eb87d47ffd86e000604b38a или другой). Если не указан, по умолчанию загружаются фотографии запуска с ID 5eb87d47ffd86e000604b38a._
 
 **telegram_bot.py:**
 
@@ -200,7 +200,7 @@ TELEGRAM_BOT_TOKEN=your_telegram_bot_token
 TELEGRAM_CHANNEL_ID=@your_telegram_channel_id
 ```
 
-Telegram Channel ID starts with **@**!
+_Telegram Channel ID starts with **@**!_
 
 **Getting a NASA API Key:**
 
@@ -251,7 +251,7 @@ This script fetches the latest images from SpaceX launches and stores them in th
 python3 download_spacex_images.py --launch_id 5eb87d47ffd86e000604b38a
 ```
 
-You should specify the launch ID (5eb87d47ffd86e000604b38a or another). If not specified, the images from the launch with ID '5eb87d47ffd86e000604b38a' are downloaded by default.
+_You can specify the launch ID (5eb87d47ffd86e000604b38a or another). If not specified, the images from the launch with ID '5eb87d47ffd86e000604b38a' are downloaded by default._
 
 **telegram_bot.py:**
 
@@ -277,7 +277,6 @@ If you want to post a specific image, use `--image` argument:
 
 ```bash
 python telegram_bot.py --image epic_1.png  # Posts 'epic_1.png' image
-
 ```
 
 ## Stopping the bot
