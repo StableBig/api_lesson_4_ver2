@@ -8,7 +8,7 @@ from telegram import Bot
 
 def post_image_to_channel(image_path, channel_id, bot_token):
     bot = Bot(token=bot_token)
-    with open(image_path, 'rb') as image_file:
+    with open(image_path, "rb") as image_file:
         bot.send_photo(chat_id=channel_id, photo=image_file)
 
 
