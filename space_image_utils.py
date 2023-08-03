@@ -20,11 +20,3 @@ def download_image(image_url, save_folder, filename_prefix, timestamp, index):
 
     with open(save_path, "wb") as file:
         file.write(response.content)
-
-
-def download_images_from_urls(image_urls, save_folder, filename_prefix):
-    os.makedirs(save_folder, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-
-    for index, image_url in enumerate(image_urls, start=1):
-        download_image(image_url, save_folder, filename_prefix, timestamp, index)
